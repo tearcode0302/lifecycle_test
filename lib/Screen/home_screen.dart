@@ -49,6 +49,7 @@ class SonWidget extends StatefulWidget {
 }
 
 class _SonWidgetState extends State<SonWidget> {
+  Color color = Colors.red;
 
   @override
   void initState() {
@@ -65,10 +66,17 @@ class _SonWidgetState extends State<SonWidget> {
   @override
   Widget build(BuildContext context) {
     print('5) Stateful Widget build');
-    return Container(
-      color: Colors.red,
-      width: 50.0,
-      height: 50.0,
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          color = color == Colors.red ? Colors.blue : Colors.red;
+        });
+      },
+      child: Container(
+        color: color,
+        width: 50.0,
+        height: 50.0,
+      ),
     );
   }
 
